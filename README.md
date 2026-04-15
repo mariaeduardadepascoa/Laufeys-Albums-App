@@ -30,15 +30,27 @@ Este projeto foi criado com foco em aprendizado, visando:
 
 ## Como rodar o projeto 
 
-### Clone o repositório
+1. Clone o repositório
+
+```bash
 git clone https://github.com/mariaeduardadepascoa/FirstPAMapp.git
+```
 
-### Acesse a pasta
+2. Acesse a pasta
+   
+```bash
 cd FirstPAMapp
+```
 
-### Instale as dependências
+3. Instale as dependências
+```bash
 npm install
+```
+```bash
 npm install @react-navigation/native @react-navigation/native-stack
+```
 
-### Inicie o projeto
+4. Inicie o projeto
+```bash
 npx expo start
+```
