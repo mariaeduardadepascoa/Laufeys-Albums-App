@@ -1,43 +1,144 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+
+// FUNÇÃO QUE EXIBE A TELA HOME
+function HomeScreen({navigation}) {
   return (
     <View style={styles.fundo}>
-      <Image style={styles.album} source={require('./assets/laufey.webp')}></Image>
-      <Text style={styles.nameAlbum}>Everything I Know About Love</Text>
-      <Text style={styles.nameSinger}>Laufey</Text>
+      <View style={styles.card}>
+      <Image style={styles.album} source={require('./assets/laufey.webp')} />
+
+      <Text style={styles.nameAlbum}>
+        Everything I Know About Love
+      </Text>
+
+      <Text style={styles.nameSinger}>
+        Laufey
+      </Text>
+
+      <Pressable onPress={() => navigation.navigate('Details')} style={styles.botao}>
+        <Text style={styles.textButton}>Ver detalhes</Text>
+      </Pressable>
+
+      <StatusBar style="auto" />
+      </View>
+    </View>
+  );
+}
+
+// FUNÇÃO QUE EXIBE A TELA DE DETALHES
+function Details({navigation}) {
+  return (
+    <View style={styles.fundo}>
+      
+      <Image style={styles.album2} source={require('./assets/laufey.webp')} />
+
+      <Text style={styles.description}>Everything I Know About Love, da Laufey, é um álbum que mistura jazz e pop para retratar as emoções do amor jovem. Com letras sensíveis, ela fala sobre paixão, decepções e amadurecimento, criando uma atmosfera íntima e nostálgica.</Text>
+
+      {/* <Pressable onPress={() => navigation.goBack()} style={styles.botao}>
+        <Text style={styles.nameAlbum}>Voltar</Text>
+      </Pressable> */}
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
+// APP -> ONDE CHAMA OS STACK'S
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Albums" component={HomeScreen} options={{headerTitleAlign: 'center',
+          headerStyle: {
+            height: 80,
+            backgroundColor: 'rgb(156, 174, 198)',
+            borderBottomWidth: 0, //remove a linhazinha branca de baixo
+          }
+        }}/> 
+        <Stack.Screen name='Details' component={Details}/>
+        {/*headerShown: false tira o header */}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+// SEÇÃO DE ESTILIZAÇÃO
+// Usar números normais -> sao inteligentes (densidade independente)
 const styles = StyleSheet.create({
   fundo: {
     flex: 1,
     backgroundColor: '#aabcd5',
     alignItems: 'center',
     justifyContent: 'center',
-    textAlign: 'center'
+  },
+
+  card: {
+    flex: 2,
+    backgroundColor: '#fff',
+    borderRadius: 25,
+    width: 285,
+    maxHeight: 450,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   album: {
-    width: '80vw',
-    height: '80vw',
-    marginBottom: '1rem'
+    width: 230,
+    height: 230,
+    borderRadius: 20,
+    marginBottom: 20,
   },
 
   nameAlbum: {
-    color: '#fff',
-    fontSize: '1.2rem',
-    fontFamily: "Bodoni Moda",
-    marginBottom: '0.5rem'
+    color: '#1b1b1b',
+    fontSize: 18,
+    marginBottom: 5,
+    fontWeight: '600',
+    textAlign: 'center'
+    // fontFamily: "Bodoni Moda",
   }, 
 
   nameSinger: {
-    color: '#e4e4e4',
+    color: '#1b1b1b',
+    fontSize: 16,
     fontWeight: '700',
-    fontSize: '1.05rem',
     fontFamily: 'Roboto'
+  },
+
+  botao: {
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginTop: 20,
+    backgroundColor: '#2338c5'
+  },
+
+  textButton: {
+    color: "#fff"
+  },
+
+  album2: {
+    width: 280,
+    height: 200,
+    borderRadius: 20,
+    marginBottom: 20,
+  },
+
+  description: {
+    color: '#363636',
+    fontSize: 15,
+    fontWeight: '400',
+    textAlign: 'justify',
+    paddingTop: 0,
+    paddingRight: 20,
+    paddingBottom: 0,
+    paddingLeft: 20,
+
   }
 });
