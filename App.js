@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 5,
     fontWeight: '600',
-    textAlign: 'center'
-    // fontFamily: "Bodoni Moda",
+    textAlign: 'center',
+    fontFamily: "Bodoni Moda"
   }, 
 
   nameSinger: {
