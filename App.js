@@ -2,9 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
+
 
 const Stack = createNativeStackNavigator();
-
 
 // FUNÇÃO QUE EXIBE A TELA HOME
 function HomeScreen({navigation}) {
@@ -51,6 +52,17 @@ function Details({navigation}) {
 
 // APP -> ONDE CHAMA OS STACK'S
 export default function App() {
+
+  // carregamento das fontes
+  const [fontsLoaded] = useFonts({
+    'BodoniModa': require('./assets/fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf'),
+    'Roboto': require('./assets/fonts/Roboto-VariableFont_wdth,wght.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -99,15 +111,15 @@ const styles = StyleSheet.create({
     color: '#1b1b1b',
     fontSize: 18,
     marginBottom: 5,
-    fontWeight: '600',
+    fontWeight: '700',
     textAlign: 'center',
-    fontFamily: "Bodoni Moda"
+    fontFamily: "BodoniModa"
   }, 
 
   nameSinger: {
     color: '#1b1b1b',
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '500',
     fontFamily: 'Roboto'
   },
 
