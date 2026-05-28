@@ -5,17 +5,19 @@ Um mini projeto em React Native + Expo com o objetivo de praticar conceitos bás
 O aplicativo possui uma coleção de álbuns da cantora Laufey em formato de cards deslizáveis horizontalmente. O usuário pode navegar entre os cards e acessar a tela de detalhes com mais informações sobre cada um.
 
 ## Funcionalidades
-- Estrutura em cards com scroll horizontal
+- Estrutura em cards com o ScrollView horizontal
 - Navegação entre telas utilizando Stack Navigation
 
 ## Tecnologias utilizadas
 - React Native
 - Expo
+- JSX
 
 ## Objetivo
 Este projeto foi criado com foco em aprendizado, visando:
 
 - Praticar componentes no React Native
+- Praticar sistemas de Arrays em blocos
 - Trabalhar com navegação entre telas
 - Melhorar a organização de código
 - Criar interfaces simples e funcionais
@@ -25,7 +27,6 @@ Este projeto foi criado com foco em aprendizado, visando:
 - Adicionar mais álbuns
 - Implementar animações
 - Melhorar o design da interface
-- Consumir dados de uma API ao invés de dados fixos
 - Adicionar sistema de favoritos
 
 ## Como rodar o projeto 
