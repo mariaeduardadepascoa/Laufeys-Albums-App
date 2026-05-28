@@ -33,13 +33,13 @@ Este projeto foi criado com foco em aprendizado, visando:
 1. Clone o repositório
 
 ```bash
-git clone https://github.com/mariaeduardadepascoa/FirstPAMapp.git
+git clone https://github.com/mariaeduardadepascoa/Laufeys-Albums-App.git
 ```
 
 2. Acesse a pasta
    
 ```bash
-cd FirstPAMapp
+cd Laufeys-Albums-App
 ```
 
 3. Instale as dependências
